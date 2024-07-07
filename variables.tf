@@ -13,3 +13,38 @@ variable "environment" {
     type        = string
     description = "environment of the project"
 }
+
+variable "vpc_cidr" {
+    type = string
+    description = "cidr for vpc"
+}
+
+variable "vpc_public_subnet_az1_cidr" {
+    type = string
+    description = "cidr for public subnet az1"
+}
+
+variable "vpc_public_subnet_az2_cidr" {
+    type = string
+    description = "cidr for public subnet az2"
+}
+
+variable "vpc_private_app_subnet_az1_cidr" {
+    type = string
+    description = "cidr for private app subnet az1"
+}
+
+variable "vpc_private_app_subnet_az2_cidr" {
+    type = string
+    description = "cidr for private app subnet az2"
+}
+
+variable "vpc_private_data_subnet_az1_cidr" {
+    type = string
+    description = "cidr for private data subnet az1"
+}
+
+variable "vpc_private_data_subnet_az2_cidr" {
+    type = string
+    description = "cidr for private data subnet az2"
+}
