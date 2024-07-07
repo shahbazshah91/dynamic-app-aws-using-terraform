@@ -10,6 +10,7 @@ resource "aws_vpc" "vpc" {
     }
 }
 
+#create internet gateway
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.vpc.id
 
@@ -24,6 +25,7 @@ output "zones" {
     value = data.aws_availability_zones.available_zones.names
 }
 
+#create public subnets
 resource "aws_subnet" "public_subnet_az1" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.vpc_public_subnet_az1_cidr
@@ -46,6 +48,7 @@ resource "aws_subnet" "public_subnet_az2" {
   }
 }
 
+#create route table and add public route
 resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.vpc.id
 
@@ -69,6 +72,7 @@ resource "aws_route_table_association" "public_subnet_az2_association" {
   route_table_id = aws_route_table.public_route_table.id
 }
 
+#create private subnets
 resource "aws_subnet" "private_app_subnet_az1" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.vpc_private_app_subnet_az1_cidr
